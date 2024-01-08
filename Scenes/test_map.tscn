@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://syvqbfe2m360"]
+
+[ext_resource type="PackedScene" uid="uid://dgxiiewrqk17c" path="res://Scenes/player.tscn" id="1_5fti2"]
+[ext_resource type="PackedScene" uid="uid://tpjpo0kc1gd8" path="res://Scenes/Mobs/mob.tscn" id="2_n4yrm"]
+[ext_resource type="PackedScene" uid="uid://dh8kjltojbems" path="res://Scenes/Weapons/rifle.tscn" id="3_xbgxv"]
+[ext_resource type="PackedScene" uid="uid://dgniawf8v03bv" path="res://Scenes/Segments/rectangle_segment.tscn" id="4_g1s8x"]
+
+[node name="TestMap" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_5fti2")]
+position = Vector2(444, 368)
+
+[node name="Weapon" parent="." instance=ExtResource("3_xbgxv")]
+position = Vector2(93, 379)
+
+[node name="Weapon2" parent="." instance=ExtResource("3_xbgxv")]
+position = Vector2(96, 297)
+
+[node name="Head" parent="." instance=ExtResource("2_n4yrm")]
+position = Vector2(401, 110)
+
+[node name="RectangleSegment" parent="." instance=ExtResource("4_g1s8x")]
+position = Vector2(440, 262)

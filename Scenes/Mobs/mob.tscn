@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://tpjpo0kc1gd8"]
+
+[ext_resource type="PackedScene" uid="uid://dgniawf8v03bv" path="res://Scenes/Segments/rectangle_segment.tscn" id="1_rwi0t"]
+[ext_resource type="Script" path="res://Scenes/Mobs/mob.gd" id="1_srwsv"]
+
+[node name="Head" instance=ExtResource("1_rwi0t")]
+position = Vector2(125, 0)
+script = ExtResource("1_srwsv")
+speed = 300.0
+
+[node name="RectangleSegment" parent="." index="4" instance=ExtResource("1_rwi0t")]
+position = Vector2(-139, -1)
+linear_damp = 10.0
+
+[node name="RectangleSegment2" parent="." index="5" instance=ExtResource("1_rwi0t")]
+position = Vector2(-271, 0)
+linear_damp = 10.0
+
+[node name="PinJoint2D" type="PinJoint2D" parent="." index="6"]
+position = Vector2(-68, 0)
+node_a = NodePath("..")
+node_b = NodePath("../RectangleSegment")
+disable_collision = false
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="." index="7"]
+position = Vector2(-205, 0)
+node_a = NodePath("../RectangleSegment")
+node_b = NodePath("../RectangleSegment2")
+disable_collision = false
+
+[node name="Timer" type="Timer" parent="." index="8"]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

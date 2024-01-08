@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh8kjltojbems"]
+
+[ext_resource type="PackedScene" uid="uid://fq63cjeugcc" path="res://Scenes/weapon.tscn" id="1_teaos"]
+[ext_resource type="Texture2D" uid="uid://dbvo5vyy23uf3" path="res://Sprites/rifle.png" id="2_1gcjt"]
+[ext_resource type="PackedScene" uid="uid://cmkhom13qqmf" path="res://Scenes/bullet.tscn" id="2_umbpt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1psp"]
+size = Vector2(40, 14)
+
+[node name="Weapon" instance=ExtResource("1_teaos")]
+bullet_scene = ExtResource("2_umbpt")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(50, 0)
+scale = Vector2(2.5, 2.25)
+texture = ExtResource("2_1gcjt")
+
+[node name="Area2D" parent="." index="1"]
+position = Vector2(50, 0)
+
+[node name="hit_box" parent="Area2D" index="0"]
+shape = SubResource("RectangleShape2D_s1psp")
